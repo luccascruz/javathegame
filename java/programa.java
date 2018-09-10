@@ -53,10 +53,10 @@ public static int opcao;
 }
 															
 class gameobjects{
-	public static int selecionado,resposta,correta;
-	public static String pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
+	public static int selecionado,resposta,correta,ponto1,ponto2,rodada;
+	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
+
 	static void jogadores(){
-	String jogador1,jogador2;
 	Scanner nome1 = new Scanner (System.in);
 	Scanner nome2 = new Scanner (System.in);
 	menus.limpatela();
@@ -72,7 +72,7 @@ class gameobjects{
 		int randomm  = 1;
 		switch(randomm){
 			case 1:
-			pergunta = ("Qual é o IP padra para acessar o roteador?");
+			pergunta = ("Qual é o IP padrao para acessar o roteador?");
 			alternativa1 = ("192.168.0.4");
 			alternativa2 = ("192.168.0.3");
 			alternativa3 = ("192.168.0.2");
@@ -80,18 +80,63 @@ class gameobjects{
 			correta = 4;
 			break;
 			case 2:
+			pergunta = ("Qual é a raiz quadrada de 4?");
+                        alternativa1 = ("12");
+                        alternativa2 = ("1");
+                        alternativa3 = ("2");
+                        alternativa4 = ("8");
+                        correta = 3;
 			break;
 			case 3:
+			pergunta = ("Quanto é 1+1?");
+                        alternativa1 = ("1");
+                        alternativa2 = ("2");
+                        alternativa3 = ("3");
+                        alternativa4 = ("4");
+                        correta = 2;
+			break;
+			case 4:
+			break;
+			case 5:
+			break;
+			case 6:
+			break;
+			case 7:
+			break;
+			case 8:
+			break;
+			case 9:
+			break;
+			case 10:
+			break;
+			case 11:
+			break;
+			case 12:
+			break;
+			case 13:
+			break;
+			case 14:
+			break;
+			case 15:
+			break;
+			case 16:
+			break;
+			case 17:
+			break;
+			case 20:
+			break;
+			case 21:
+			break;
+			case 22:
+			break;
+			case 23:
+			break;
+			case 24:
+			break;
+			case 25:
 			break;
 		}
 	}
-	static void verificar(){
-                if(resposta == correta){
-                        System.out.println("Parabens voce acertou");
-                }else{
-                        System.out.println("Voce errou tente novamente");
-                }
-        }
 
 	static void selecao(){
 			scroll2: for(int h = 0; h <= 999; h++){
@@ -101,47 +146,63 @@ class gameobjects{
 				if (bla2.isEmpty()){
 					resposta= resposta +1;
 					if(resposta > 4){
-					resposta = 1;
+						resposta = 1;
 					}
+				}else{
+					if(selecionado == correta){
+						System.out.println("Parabens voce acertou");
+                			}else{
+                        		 	System.out.println("Voce errou tente novamente");
+                			}
+					break scroll2;
+
 				}
 					menus.limpatela();
+					System.out.println("                              "+jogador1 + ": "+ ponto1 + " ««»» "+ jogador2+": "+ponto2);
+					System.out.println(" ");
+					System.out.println("                                                »»»»»»"+rodada+"««««««" );
+					System.out.println("                                "+pergunta);
+					System.out.println(" ");
 					switch(resposta){
                 	        	case 1:
-                        	       		System.out.println(" ►" + alternativa1);
-                                		System.out.println(" "  + alternativa2);
-                                		System.out.println(" "  + alternativa3);
-                                		System.out.println(" "  + alternativa4);
-						resposta = 1;
+                        	       		System.out.println("                                           ►" + alternativa1);
+                                		System.out.println("                                          "  + alternativa2);
+                                		System.out.println("                                          "  + alternativa3);
+                                		System.out.println("                                          "  + alternativa4);
+						selecionado = 1;
+						menus.pulalinha();
                                 		break;
                         		case 2:
-                                		System.out.println(" "  + alternativa1);
-                                		System.out.println(" ►" + alternativa2);
-                                		System.out.println(" "  + alternativa3);
-                                		System.out.println(" "  + alternativa4);
-						resposta = 2;
+                                		System.out.println("                                          "  + alternativa1);
+                                		System.out.println("                                           ►" + alternativa2);
+                                		System.out.println("                                          "  + alternativa3);
+                                		System.out.println("                                          "  + alternativa4);
+						selecionado = 2;
+						menus.pulalinha();
                                 		break;
                        		 	case 3:
-                               			System.out.println(" "  + alternativa1);
-                                		System.out.println(" "  + alternativa2);
-                                		System.out.println(" ►" + alternativa3);
-                                		System.out.println(" "  + alternativa4);
-						resposta = 3;
+                               			System.out.println("                                          "  + alternativa1);
+                                		System.out.println("                                          "  + alternativa2);
+                                		System.out.println("                                           ►" + alternativa3);
+                                		System.out.println("                                          "  + alternativa4);
+						selecionado = 3;
+						menus.pulalinha();
                                 		break;
                        			case 4:
-                                		System.out.println(" "  + alternativa1);
-                                		System.out.println(" "  + alternativa2);
-                                		System.out.println(" "  + alternativa3);
-                                		System.out.println(" ►" + alternativa4);
-						resposta = 4;
+                                		System.out.println("                                          "  + alternativa1);
+                                		System.out.println("                                          "  + alternativa2);
+                                		System.out.println("                                          "  + alternativa3);
+                                		System.out.println("                                           ►" + alternativa4);
+						selecionado = 4;
+						menus.pulalinha();
                                 		break;
-					this.verificar();
 			}
-	}}
-	
-}
+	}}}
+
+
 															
 public class programa {
-	public  void main(String[] args){
+	public static void main(String[] args){
 		menus screen =  new menus();
 		screen.limpatela();
 		scroll: for (int a = 0; a <= 999; a++){
