@@ -56,18 +56,21 @@ class gameobjects{
 	public static int selecionado,resposta,correta,ponto1,ponto2,rodada;
 	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
 
+	//RECUPERANDO O NOME DOS JOGADORES
 	static void jogadores(){
-	Scanner nome1 = new Scanner (System.in);
-	Scanner nome2 = new Scanner (System.in);
+	//Scanner nome1 = new Scanner (System.in);
+	//Scanner nome2 = new Scanner (System.in);
+	Scanner leitor = new Scanner(System.in);
 	menus.limpatela();
 
 	System.out.print("Digite o nome do jogador 1: ");
-	jogador1 = nome1.nextLine();
+	jogador1 = leitor.nextLine();
 
 	menus.limpatela();
 	System.out.print("Digite o nome do jogador 2: ");
-	jogador2 = nome2.nextLine();
+	jogador2 = leitor.nextLine();
 	}
+
 	static void perguntas(){
 		int randomm  = 1;
 		switch(randomm){
@@ -138,13 +141,15 @@ class gameobjects{
 		}
 	}
 
+
 	static void selecao(){
+			String entrada;
+			Scanner leitor = new Scanner(System.in);
+			//VAMOS TER UM FOR DE 1000 LOOPS 
 			scroll2: for(int h = 0; h <= 999; h++){
-				Scanner enter2 = new Scanner(System.in);
-                     		String bla2;
-                        	bla2 = enter2.nextLine();
-				if (bla2.isEmpty()){
-					resposta= resposta +1;
+                           	entrada = leitor.nextLine();
+				if (entrada.isEmpty()){
+					respsta= resposta +1;
 					if(resposta > 4){
 						resposta = 1;
 					}
@@ -204,28 +209,47 @@ class gameobjects{
 public class programa {
 	public static void main(String[] args){
 		menus screen =  new menus();
+		//DA UMA LIMPADA MONSTRA NA TELA 
 		screen.limpatela();
+		String entrada;
+		
 		scroll: for (int a = 0; a <= 999; a++){
 			Scanner enter = new Scanner(System.in);
-			String bla;
-			bla = enter.nextLine();
-			if (bla.isEmpty()){
+			//SE ENTRADA RECEBE UM VALOR DO TECLADO
+			entrada = enter.nextLine();
+
+			//SE ENTRADA FOR VAZIA
+			if (entrada.isEmpty()){
+				
+				//OPCAO NA CLASSE MENU RECE +1
 				screen.opcao = screen.opcao +1;
 				if (screen.opcao >4){
+					//OCAO SERA 1 
 					screen.opcao = 1;
+					//LIMPAMOS A TELA
 					screen.limpatela();
+					//APRESENTAR O MENU NOVAMENTE COMECANDO DA OPCAO 1
 					screen.menuopcao();
 				}else{
+					//SENÃO LIMPAMOS A TELA 
 					screen.limpatela();
+					//APRESENTAMOS O MENU DE ACORDO COM O CASE DA CLASSE MENU
 					screen.menuopcao();
 				}
 			}else{
+				
+				//LIMPAMOS A TELA
 				screen.limpatela();
+				
+				//DE ACORDO COM O VALOR DA OPCAO DA CLASSE MENUS IREMOS FAZER UMA ACAO
 				entermenu: switch(screen.opcao){
 				case 1:
 					System.out.println("OK, vamos jogar");
+					//CAPTURA OS NOMES DOS JOGADORES 
 					gameobjects.jogadores();
+					//INICIA AS PERGUNTAS 
 					gameobjects.perguntas();
+					
 					gameobjects.selecao();
 					break scroll;
 				case 2:
