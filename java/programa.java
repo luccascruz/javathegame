@@ -57,16 +57,17 @@ class gameobjects{
 	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
 
 	static void jogadores(){
-	Scanner nome1 = new Scanner (System.in);
-	Scanner nome2 = new Scanner (System.in);
-	menus.limpatela();
+		Scanner reader = new Scanner(System.in);
+		menus.limpatela();
 
-	System.out.print("Digite o nome do jogador 1: ");
-	jogador1 = nome1.nextLine();
+		System.out.print("Digite o nome do jogador 1: ");
+		jogador1 = reader.nextLine();
+		System.out.println(jogador1);
 
-	menus.limpatela();
-	System.out.print("Digite o nome do jogador 2: ");
-	jogador2 = nome2.nextLine();
+		menus.limpatela();
+		System.out.print("Digite o nome do jogador 2: ");
+		jogador2 = reader.nextLine();
+		System.out.println(jogador2);
 	}
 	static void perguntas(){
 		int randomm  = 1;
@@ -233,7 +234,7 @@ public class programa {
 					System.out.println("Aperte enter para voltar ao menu");
 				break entermenu;
 				case 3:
-					System.out.println("Por: Luccas e Gabriel");
+					System.out.println(" GNU LESSER GENERAL PUBLIC LICENSE Version 3, 29 June 2007 Copyright (C) 2007 Free Software Foundation, Inc. https:fsf.org Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed. This version of the GNU Lesser General Public License incorporates the terms and conditions of version 3 of the GNU General Public License, supplemented by the additional permissions listed below.");
 					System.out.println("Aperte enter para voltar ao menu");
 				break entermenu;
 				case 4:
