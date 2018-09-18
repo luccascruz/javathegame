@@ -53,21 +53,54 @@ public static int opcao;
 }
 															
 class gameobjects{
-	public static int selecionado,resposta,correta,ponto1,ponto2,rodada;
+	public static int selecionado,resposta,correta,ponto1,ponto2,rodada,njogadores;
 	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
-
+	public static String[] nomesjogadores = new String[4];
+	//void dadosjogadores(){
+	//	String nome;
+	//	int pontuação;
+	//}
+	//RECUPERANDO O NOME DOS JOGADORES
 	static void jogadores(){
-		Scanner reader = new Scanner(System.in);
-		menus.limpatela();
+		String enter2;
+		Scanner entrada2 = new Scanner(System.in);
+		scroll3: for  (int lu =0; lu <= 900;lu ++){
+			enter2 = entrada2.nextLine();
+			if(enter2.isEmpty()){
+				menus.limpatela();
+				njogadores = njogadores +1;
+                                if(njogadores >= 4){
+                                        njogadores = 1;
+                                }
 
-		System.out.print("Digite o nome do jogador 1: ");
-		jogador1 = reader.nextLine();
-		System.out.println(jogador1);
-
-		menus.limpatela();
-		System.out.print("Digite o nome do jogador 2: ");
-		jogador2 = reader.nextLine();
-		System.out.println(jogador2);
+					switch(njogadores){
+                                                case 1:
+                                                        System.out.println("                                           ► 2 JOGADORES");
+                                                        System.out.println("                                            3 Jogadores");
+                                                        System.out.println("                                            4 Jogadores");
+                                                break;
+                                                case 2:
+                                                        System.out.println("                                            2 Jogadores");
+                                                        System.out.println("                                           ► 3 JOGADORES");
+                                                        System.out.println("                                            4 Jogadores");
+                                                break;
+                                                case 3:
+                                                        System.out.println("                                            2 Jogadores");
+                                                        System.out.println("                                            3 Jogadores");
+                                                        System.out.println("                                           ► 4 JOGADORES");
+                                                break;
+                                             }
+			menus.pulalinha();
+			}else{ 
+				Scanner nomes = new Scanner(System.in);
+				for(int i = 0 ; i < njogadores + 1; i++){
+					menus.limpatela();
+					System.out.println("Digite o nome do jogador "+i);
+					nomesjogadores[i] = nomes.nextLine();
+				}
+			break scroll3;
+			}
+		}
 	}
 	static void perguntas(){
 		int randomm  = 1;
@@ -139,12 +172,14 @@ class gameobjects{
 		}
 	}
 
+
 	static void selecao(){
+			String entrada;
+			Scanner leitor = new Scanner(System.in);
+			//VAMOS TER UM FOR DE 1000 LOOPS 
 			scroll2: for(int h = 0; h <= 999; h++){
-				Scanner enter2 = new Scanner(System.in);
-                     		String bla2;
-                        	bla2 = enter2.nextLine();
-				if (bla2.isEmpty()){
+                           	entrada = leitor.nextLine();
+				if (entrada.isEmpty()){
 					resposta= resposta +1;
 					if(resposta > 4){
 						resposta = 1;
@@ -175,7 +210,7 @@ class gameobjects{
                                 		break;
                         		case 2:
                                 		System.out.println("                                          "  + alternativa1);
-                                		System.out.println("                                           ►" + alternativa2);
+						System.out.println("                                           ►" + alternativa2);
                                 		System.out.println("                                          "  + alternativa3);
                                 		System.out.println("                                          "  + alternativa4);
 						selecionado = 2;
@@ -205,28 +240,43 @@ class gameobjects{
 public class programa {
 	public static void main(String[] args){
 		menus screen =  new menus();
+		//DA UMA LIMPADA MONSTRA NA TELA 
 		screen.limpatela();
+		String entrada;
 		scroll: for (int a = 0; a <= 999; a++){
 			Scanner enter = new Scanner(System.in);
-			String bla;
-			bla = enter.nextLine();
-			if (bla.isEmpty()){
+			//SE ENTRADA RECEBE UM VALOR DO TECLADO
+			entrada = enter.nextLine();
+
+			//SE ENTRADA FOR VAZIA
+			if (entrada.isEmpty()){
+				//OPCAO NA CLASSE MENU RECE +1
 				screen.opcao = screen.opcao +1;
 				if (screen.opcao >4){
+					//OCAO SERA 1 
 					screen.opcao = 1;
+					//LIMPAMOS A TELA
 					screen.limpatela();
+					//APRESENTAR O MENU NOVAMENTE COMECANDO DA OPCAO 1
 					screen.menuopcao();
 				}else{
+					//SENÃO LIMPAMOS A TELA 
 					screen.limpatela();
+					//APRESENTAMOS O MENU DE ACORDO COM O CASE DA CLASSE MENU
 					screen.menuopcao();
 				}
 			}else{
+				//LIMPAMOS A TELA
 				screen.limpatela();
+				//DE ACORDO COM O VALOR DA OPCAO DA CLASSE MENUS IREMOS FAZER UMA ACAO
 				entermenu: switch(screen.opcao){
 				case 1:
-					System.out.println("OK, vamos jogar");
+					System.out.println("Pressione enter para continuar...");
+					//CAPTURA OS NOMES DOS JOGADORES 
 					gameobjects.jogadores();
+					//INICIA AS PERGUNTAS 
 					gameobjects.perguntas();
+					
 					gameobjects.selecao();
 					break scroll;
 				case 2:
