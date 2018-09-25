@@ -1,6 +1,6 @@
 // CUIDADO MUITOS GATOS A SEGUIR, NAO TOQUE EM NADA SENÂO NUNCA MAIS FUNCIONA!!!!!!!
 import java.util.Scanner;
-
+import java.util.Random;
 class menus{
 public static int opcao;
 	static void pulalinha(){
@@ -53,6 +53,7 @@ public static int opcao;
 }
 															
 class gameobjects{
+	public static int questoes[] = {0,1,2,3,4};
 	public static int selecionado,resposta,correta,ponto1,ponto2,rodada,njogadores;
 	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
 	public static String[] nomesjogadores = new String[4];
@@ -103,8 +104,18 @@ class gameobjects{
 		}
 	}
 	static void perguntas(){
-		int randomm  = 1;
-		switch(randomm){
+		Random randomm  = new Random();
+		int  sorteado  = gameobjects.questoes[randomm.nextInt(4)];
+		gameobjects.questoes.remove(sorteado);
+		switch(sorteado){
+			case 0:
+			pergunta = ("Quem foi o inventor do arco e flecha?");
+			alternativa1 = ("Joana Dark");
+			alternativa2 = ("Jensis Kan");
+			alternativa3 = ("Bill Gates");
+			alternativa4 = ("Dilma Roussef");
+			correta = 2;
+			break;
 			case 1:
 			pergunta = ("Qual é o IP padrao para acessar o roteador?");
 			alternativa1 = ("192.168.0.4");
@@ -130,6 +141,12 @@ class gameobjects{
                         correta = 2;
 			break;
 			case 4:
+			pergunta = ("Qual é o seu nome?");
+			alternativa1 = ("Luccas");
+			alternativa2 = ("Gabriel");
+			alternativa3 = ("Marcos");
+			alternativa4 = ("324dwsaf");
+			correta = 1;
 			break;
 			case 5:
 			break;
