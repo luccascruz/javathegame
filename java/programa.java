@@ -54,8 +54,9 @@ public static int opcao;
 															
 class gameobjects{
 	public static int questoes[] = {0,1,2,3,4};
-	public static int selecionado,resposta,correta,ponto1,ponto2,rodada,njogadores;
-	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4;
+	public static int selecionado,resposta,correta,rodada,njogadores;
+	public static int ponto[] = new int[4];
+	public static String jogador1,jogador2,pergunta,alternativa1,alternativa2,alternativa3,alternativa4,alternativa5;
 	public static String[] nomesjogadores = new String[4];
 	//void dadosjogadores(){
 	//	String nome;
@@ -105,16 +106,16 @@ class gameobjects{
 	}
 	static void perguntas(){
 		Random randomm  = new Random();
-		int  sorteado  = gameobjects.questoes[randomm.nextInt(4)];
-		gameobjects.questoes.remove(sorteado);
+		int sorteado = randomm.nextInt(14);
 		switch(sorteado){
 			case 0:
-			pergunta = ("Quem foi o inventor do arco e flecha?");
-			alternativa1 = ("Joana Dark");
-			alternativa2 = ("Jensis Kan");
-			alternativa3 = ("Bill Gates");
-			alternativa4 = ("Dilma Roussef");
-			correta = 2;
+			pergunta = ("Em quantas camadas se divide o modelo de referencia OSI?");
+			alternativa1 = ("12 camadas");
+			alternativa2 = ("5 camadas");
+			alternativa3 = ("3 camadas");
+			alternativa4 = ("7 camadas");
+			alternativa5 = ("6 camadas");
+			correta = 4;
 			break;
 			case 1:
 			pergunta = ("Qual é o IP padrao para acessar o roteador?");
@@ -122,69 +123,206 @@ class gameobjects{
 			alternativa2 = ("192.168.0.3");
 			alternativa3 = ("192.168.0.2");
 			alternativa4 = ("192.168.0.1");
+			alternativa5 = ("Nenhuma das alternativas");
 			correta = 4;
 			break;
 			case 2:
-			pergunta = ("Qual é a raiz quadrada de 4?");
-                        alternativa1 = ("12");
-                        alternativa2 = ("1");
-                        alternativa3 = ("2");
-                        alternativa4 = ("8");
+			pergunta = ("O que é uma rede de computadores?");
+                        alternativa1 = ("Conjunto de perifericos integrados");
+                        alternativa2 = ("Conjunto de computadores interligados entre si, compartilhando recursos");
+                        alternativa3 = ("União de equipamentos com a unica finalidade de compartilhar internet");
+                        alternativa4 = ("Varios computadores que fazer parte dos setores de uma organizacao");
+			alternativa5= ("Uma materia");
                         correta = 3;
 			break;
 			case 3:
-			pergunta = ("Quanto é 1+1?");
-                        alternativa1 = ("1");
-                        alternativa2 = ("2");
-                        alternativa3 = ("3");
-                        alternativa4 = ("4");
+			pergunta = ("Quanto a dispersao deografica como sao classificadas as redes de computadores");
+                        alternativa1 = ("MAN, NAN, LAN");
+                        alternativa2 = ("LAN, MAN, WAN");
+                        alternativa3 = ("LAN, NAN, WAN");
+                        alternativa4 = ("LAN, MAN, TAN");
+			alternativa5 = ("PAN, RAM, TAN");
                         correta = 2;
 			break;
 			case 4:
-			pergunta = ("Qual é o seu nome?");
-			alternativa1 = ("Luccas");
-			alternativa2 = ("Gabriel");
-			alternativa3 = ("Marcos");
-			alternativa4 = ("324dwsaf");
-			correta = 1;
+			pergunta = ("Quanto á topologia fisica, como sao denominadas as redes");
+			alternativa1 = ("Barra, Anular, Estrela e Token");
+			alternativa2 = ("Anel, Hibrida, Estrelar e Camada");
+			alternativa3 = ("Barramento, Anel, Estrela e Hibrida");
+			alternativa4 = ("Segmento, Hibrida, Estrela e Token");
+			alternativa5 = ("Nenhuma das alternativas");
+			correta = 3;
 			break;
 			case 5:
+			pergunta = ("O que é a tecnologia Broadcast?");
+			alternativa1 = ("Transmissao simutanea para todos os hosts na rede");
+			alternativa2 = ("Tramissao aleatoria na rede");
+			alternativa3 = ("Modo de transferencia de arquivos mais rapido");
+			alternativa4 = ("Modo de transferencia de arquivos lento");
+			alternativa5 = ("Um arquivo de configuração");
+			correta = 1;
 			break;
 			case 6:
+			pergunta = ("Dos equipamentos de rede abaixo, qual tem a funcao de escolher o melhor caminho para o envio da informacao");
+                        alternativa1 = ("Swith");
+                        alternativa2 = ("Roteador");
+                        alternativa3 = ("Acess Point");
+                        alternativa4 = ("Path Panel");
+                        alternativa5 = ("Computador");
+                        correta = 2;
 			break;
 			case 7:
+			pergunta = ("Qual dos cabos abaixo foi o primeiro a aparecer na estrutura de rede?");
+                        alternativa1 = ("Cabo par trancado");
+                        alternativa2 = ("Cabo de fibra optica");
+                        alternativa3 = ("Cabo coaxial");
+                        alternativa4 = ("Cabo categoria 5e");
+                        alternativa5 = ("Cabo de energia");
+                        correta = 3;
 			break;
 			case 8:
+			pergunta = ("Como se classificam as fibras opticas");
+                        alternativa1 = ("Nodal e Modal");
+                        alternativa2 = ("Monomodo e multimodo");
+                        alternativa3 = ("Monofibra e Mutifibra");
+                        alternativa4 = ("Fina e Grossa");
+                        alternativa5 = ("Platico e borracha");
+                        correta = 3;
 			break;
 			case 9:
+			pergunta = ("Quais sao os principais protocolos da camada de transporte");
+                        alternativa1 = ("IP e TCP");
+                        alternativa2 = ("TCP e UDP");
+                        alternativa3 = ("HTTP e SMTP");
+                        alternativa4 = ("UDP e POP");
+                        alternativa5 = ("SSH e HOST");
+                        correta = 2;
 			break;
 			case 10:
+			pergunta = ("Quais sao os principais funcoes da camada de rede?");
+                        alternativa1 = ("Enquadramento e Empacotamento");
+                        alternativa2 = ("Encaminhamento e roteamento");
+                        alternativa3 = ("Segmentacao e empacotamento");
+                        alternativa4 = ("Roteamento e enquadramento");
+                        alternativa5 = ("Busca e encalapsulamento");
+                        correta = 2;
 			break;
 			case 11:
+			pergunta = ("Como e denominado o dado (PDU) na camada de transporte?");
+                        alternativa1 = ("Segmento");
+                        alternativa2 = ("Pacote");
+                        alternativa3 = ("Bit");
+                        alternativa4 = ("Quadro");
+                        alternativa5 = ("Mega");
+                        correta = 1;
 			break;
 			case 12:
+			pergunta = ("Quantas camadas tem o modelo padrap TCP/IP?");
+                        alternativa1 = ("3 Camadas");
+                        alternativa2 = ("4 Camadas");
+                        alternativa3 = ("7 Camadas");
+                        alternativa4 = ("2 Camadas");
+                        alternativa5 = ("1 Camada");
+                        correta = 2;
 			break;
 			case 13:
+			pergunta = ("A qual camada pertence o protocolo IP?");
+                        alternativa1 = ("Enlace");
+                        alternativa2 = ("Transporte");
+                        alternativa3 = ("Rede");
+                        alternativa4 = ("Fisica");
+                        alternativa5 = ("Apresentacao");
+                        correta = 3;
 			break;
 			case 14:
+			pergunta = ("Como é denominado o protocolo de configuracao dinamica de IP?");
+                        alternativa1 = ("HTTP");
+                        alternativa2 = ("FTP");
+                        alternativa3 = ("DHCP");
+                        alternativa4 = ("DNS");
+                        alternativa5 = ("SSH");
+                        correta = 3;
 			break;
 			case 15:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 16:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 17:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 20:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 21:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 22:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 23:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 24:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 			case 25:
+			pergunta = ("");
+                        alternativa1 = ("");
+                        alternativa2 = ("");
+                        alternativa3 = ("");
+                        alternativa4 = ("");
+                        alternativa5 = ("");
+                        correta = 1;
 			break;
 		}
 	}
@@ -198,22 +336,37 @@ class gameobjects{
                            	entrada = leitor.nextLine();
 				if (entrada.isEmpty()){
 					resposta= resposta +1;
-					if(resposta > 4){
+					if(resposta > 5){
 						resposta = 1;
 					}
 				}else{
 					if(selecionado == correta){
+						if (rodada >= njogadores){
+							rodada = 0;
+						}else{
+							rodada = rodada +1;
+						}
 						System.out.println("Parabens voce acertou");
+						ponto[rodada] = ponto[rodada] +1;
+						gameobjects.perguntas();
+						gameobjects.selecao();
                 			}else{
                         		 	System.out.println("Voce errou tente novamente");
+						if (rodada >= njogadores){
+							rodada = 0;
+						}else{
+							rodada = rodada +1;
+						}
+						gameobjects.perguntas();
+						gameobjects.selecao();
                 			}
 					break scroll2;
 
 				}
 					menus.limpatela();
-					System.out.println("                              "+jogador1 + ": "+ ponto1 + " ««»» "+ jogador2+": "+ponto2);
+					System.out.println("                              "+gameobjects.nomesjogadores[0] + ": "+ ponto[0] + " | "+ gameobjects.nomesjogadores[1]+": "+ponto[1] + " | " + gameobjects.nomesjogadores[2]+ ": "+ponto[2] + " | " + gameobjects.nomesjogadores[3]+ ": "+ponto[3]);
 					System.out.println(" ");
-					System.out.println("                                                »»»»»»"+rodada+"««««««" );
+					System.out.println("                                                »»»»»»"+gameobjects.nomesjogadores[rodada]+"««««««" );
 					System.out.println("                                "+pergunta);
 					System.out.println(" ");
 					switch(resposta){
@@ -222,6 +375,7 @@ class gameobjects{
                                 		System.out.println("                                          "  + alternativa2);
                                 		System.out.println("                                          "  + alternativa3);
                                 		System.out.println("                                          "  + alternativa4);
+						System.out.println("                                          "  + alternativa5);
 						selecionado = 1;
 						menus.pulalinha();
                                 		break;
@@ -230,6 +384,7 @@ class gameobjects{
 						System.out.println("                                           ►" + alternativa2);
                                 		System.out.println("                                          "  + alternativa3);
                                 		System.out.println("                                          "  + alternativa4);
+						System.out.println("                                          "  + alternativa5);
 						selecionado = 2;
 						menus.pulalinha();
                                 		break;
@@ -238,6 +393,7 @@ class gameobjects{
                                 		System.out.println("                                          "  + alternativa2);
                                 		System.out.println("                                           ►" + alternativa3);
                                 		System.out.println("                                          "  + alternativa4);
+						System.out.println("                                          " + alternativa5);
 						selecionado = 3;
 						menus.pulalinha();
                                 		break;
@@ -246,9 +402,19 @@ class gameobjects{
                                 		System.out.println("                                          "  + alternativa2);
                                 		System.out.println("                                          "  + alternativa3);
                                 		System.out.println("                                           ►" + alternativa4);
+						System.out.println("                                          " + alternativa5);
 						selecionado = 4;
 						menus.pulalinha();
                                 		break;
+					case 5:
+						System.out.println("                                          "  + alternativa1);
+                                                System.out.println("                                          "  + alternativa2);
+                                                System.out.println("                                          "  + alternativa3);
+                                                System.out.println("                                          " + alternativa4);
+                                                System.out.println("                                          ►" + alternativa5);
+                                                selecionado = 5;
+                                                menus.pulalinha();
+				
 			}
 	}}}
 
